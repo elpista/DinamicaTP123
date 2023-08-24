@@ -5,7 +5,7 @@ class Servidor{
     public function verificar($archivo){
         $salida = '';
         $dir = "archivos/";
-        $link = 'C:\xampp\htdocs\web dinamica\TP3\EJ1\Control\archivos/';
+        $link = 'C:\xampp\htdocs\web dinamica\TP3\EJ1\Vista\action\archivos/';
         $tipoDOC = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
         $tipoPDF = "application/pdf";
 

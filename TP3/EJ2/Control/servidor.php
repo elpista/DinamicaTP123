@@ -1,25 +1,33 @@
 <?php
 
-$dir = 'archivos/';
-$link = 'C:\xampp\htdocs\web dinamica\TP3\EJ2\Control\archivos/';
-$tipoTXT = 'text/plain';
+class Servidor{
 
-if($_FILES["inputFile"]["error"] <= 0){
+    function verificar($archivo){
 
-    if($_FILES["inputFile"]["type"] == $tipoTXT){
-            if(!copy($_FILES["inputFile"]["tmp_name"], $dir.$_FILES["inputFile"]["name"])){
-                echo "Error: no se ha podido subir el archivo";
-            } else{
-                $fp = fopen("archivos/" . $_FILES["inputFile"]["name"], "r");
-                $linea = fgets($fp);
-                echo "<textarea rows='4' cols='50'> " . $linea . " </textarea>";
+        $salida = '';
+        $dir = 'archivos/';
+        $link = 'C:\xampp\htdocs\web dinamica\TP3\EJ2\Vista\Accion\archivos/';
+        $tipoTXT = 'text/plain';
+
+        if($archivo["error"] <= 0){
+        
+            if($archivo["type"] == $tipoTXT){
+                    if(!copy($archivo["tmp_name"], $dir.$archivo["name"])){
+                        $salida = "Error: no se ha podido subir el archivo";
+                    } else{
+                        $fp = fopen("archivos/" . $archivo["name"], "r");
+                        $linea = fgets($fp);
+                        $salida =  $linea;
+                    }
+                } else {
+                $salida = "Error: El tipo de archivo debe ser .doc o pdf";
             }
+        
         } else {
-        echo "Error: El tipo de archivo debe ser .doc o pdf";
+            $salida = "Error: no se ha podido cargar el archivo";
+        }
+
+        return $salida;
     }
-
-} else {
-    echo "Error: no se ha podido cargar el archivo";
 }
-
 ?>

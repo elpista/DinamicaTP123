@@ -3,7 +3,7 @@
         <title> Ejercicio 2 </title>
     </head>
     <body>
-        <form enctype="multipart/form-data" method="post" action="../Control/servidor.php">
+        <form enctype="multipart/form-data" method="post" action="Accion/formAction.php">
             <div>
                 <label for="inputFile">Seleccione un archivo</label>
                 <input type="file" id="inputFile" name="inputFile"/>

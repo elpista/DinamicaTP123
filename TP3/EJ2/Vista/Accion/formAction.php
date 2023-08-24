@@ -19,6 +19,6 @@ if($_FILES["inputFile"]["error"] <= 0){
 
     </head>
     <body>
-        <h3> <?php echo $salida; ?> </h3>
+    <textarea rows='4' cols='50'> <?php echo $salida ?> </textarea>
     </body>
 </html>

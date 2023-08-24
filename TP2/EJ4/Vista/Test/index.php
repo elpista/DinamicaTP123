@@ -13,7 +13,7 @@
     <div class="container border border-2 pb-5 mt-5 mb-2" id="container">
 
 
-        <form class="row needs-validation " novalidate onsubmit="return validarFormulario()" id="miFormulario" method="post" action="../../Control/salida.php">
+        <form class="row needs-validation " novalidate onsubmit="return validarFormulario()" id="miFormulario" method="post" action="Accion\salida.php">
             <h2 style="color: blue">Cinem@s</h2>
             <div class="col-6">
                 <label for="tituloInput" class="form-label mt-3"><strong>Título</strong></label>

@@ -3,7 +3,7 @@
         <title>Ejercicio 3</title>
     </head>
     <body>
-        <form name="form" id="form" method="get" action="servidor.php">
+        <form name="form" id="form" method="get" action="action/formAction.php">
             <h2>Nombre: </h2>
             <input type="text" name="form_nombre" id="form_nombre"/>
             <br/>

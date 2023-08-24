@@ -13,7 +13,7 @@
     <div class="container border border-2 pb-5 mt-5 mb-2" id="container">
 
 
-        <form class="row needs-validation " novalidate onsubmit="return validarFormulario()" id="miFormulario" method="post" action="../../Control/salida.php">
+        <form class="row needs-validation " novalidate onsubmit="return validarFormulario()" id="miFormulario" method="post" action="../../Control/salida.php" enctype = "multipart/form-data">
             <h2 style="color: blue">Cinem@s</h2>
             <div class="col-6">
                 <label for="tituloInput" class="form-label mt-3"><strong>Título</strong></label>
@@ -93,6 +93,13 @@
                 </div>
 
             </div>
+
+            <div class="mb-3 mt-4 col-5">
+                <label for="formFile" class="form-label"><strong>Portada</strong></label>
+                <input class="form-control" type="file" id="formFile" required name="portada" accept="image/png, image/jpeg">
+            </div>
+
+
             <div class="col-12 pt-3">
                 <label for="sipnosisInput" class="form-label  col-12"><strong>Sipnosis</strong></label>
                 <textarea class="form-control" id="sipnosisInput" rows="3" required></textarea>
@@ -100,7 +107,7 @@
 
 
             <div class="d-grid  d-md-flex justify-content-md-end mt-4">
-                <button class="btn btn-info m-1" style="color:white" type="submit" >Enviar</button>
+                <button class="btn btn-info m-1" style="color:white" type="submit">Enviar</button>
                 <button class="btn btn-light m-1" type="button" onclick="borrarFormulario()">Borrar</button>
             </div>
         </form>
@@ -142,8 +149,12 @@
                 anio.style = `background-image: '';`;
                 anio.nextElementSibling.classList.remove('d-block'); // Ocultamos el mensaje de error
             } else {
+                //anio.classList.remove("was-validated");
+
                 anio.style = `background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e"); border-color: var(--bs-form-invalid-border-color);`
+
                 anio.nextElementSibling.classList.add('d-block'); // Mostramos el mensaje de error
+
             }
 
 
@@ -155,6 +166,8 @@
             } else {
                 duracion.style = `background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e"); border-color: var(--bs-form-invalid-border-color);`
                 duracion.nextElementSibling.classList.add('d-block');
+
+
             }
             if (validarAnio && validarDuracion) {
                 validar = true;
@@ -163,7 +176,7 @@
             return validar;
         }
 
-    
+
 
         function borrarFormulario() {
             var form = document.getElementById("miFormulario")

@@ -1,7 +1,10 @@
 <?php
-include "servidor.php";
+include "../../Control/Persona.php";
+include "../../util/encapsulado.php";
 $server = new Persona();
-$salida = $server -> mostrarDatos();
+$datos = encapsulado();
+
+$salida = $server -> mostrarDatos($datos);
 ?>
 
 <html>

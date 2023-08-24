@@ -10,6 +10,7 @@
         <button type="button" onclick="location.href='TP1/EJ1/Vista/index.php'">EJ1</button>
         <button type="button" onclick="location.href='TP1/EJ2/Vista/index.php'">EJ2</button>
         <button type="button" onclick="location.href='TP1/EJ3/Vista/index.php'">EJ3</button>
+        <button type="button" onclick="location.href='TP1/EJ4/Vista/index.php'">EJ4</button>
         <br/>
 
         <h1>

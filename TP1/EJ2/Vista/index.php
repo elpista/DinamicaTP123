@@ -4,7 +4,7 @@
     </head>
     <body>
         
-        <form name="form" id="form" method="get" action="servidor.php">
+        <form name="form" id="form" method="get" action="action/formAction.php">
             <h3> Ingrese las horas cursadas por cada dia de la semana </h3>
             <br/>
             <h3> Lunes </h3>

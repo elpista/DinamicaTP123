@@ -3,11 +3,11 @@
         <title>Ejercicio 3</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="../bootstrap-5.1.3-dist/css/bootstrap.min.css"/>
-        <script src="../bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css"/>
+        <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <form onsubmit="return validar();" class="row g-3" method="post" action="../../Control/verificaPass.php">
+        <form onsubmit="return validar();" class="row g-3" method="post" action="action/formAction.php">
             <h3> Member login</h3>
             <div class="col-md-4 mb-3">
                 <label for="validationCustomUsername" class="form-label">Username</label>

@@ -22,7 +22,7 @@
         </h1>
         <br/>
         <button type="button" onclick="location.href='TP2/EJ1/Vista/index.php'">EJ1</button>
-        <button type="button" onclick="location.href='TP2/EJ2/Vista/index.php'">EJ2</button>
+        <button type="button" onclick="location.href='TP2/EJ2/menuEJ2.php'">EJ2</button>
         <button type="button" onclick="location.href='TP2/EJ3/Vista/index.php'">EJ3</button>
         <button type="button" onclick="location.href='TP2/EJ4/Vista/Test/index.php'">EJ4</button>
         <br/>

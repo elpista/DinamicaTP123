@@ -1,6 +1,6 @@
 <?php
-include "C:/xampp/htdocs/pwd/EJ8/Control/Cine.php";
-include "C:/xampp/htdocs/pwd/EJ8/util/encapsulado.php";
+include "../../Control/Cine.php";
+include "../../util/encapsulado.php";
 $server = new Cine();
 $datos = encapsulado();
 

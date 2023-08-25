@@ -1,6 +1,6 @@
 <?php
-include "C:/xampp/htdocs/pwd/EJ7/Control/Calculadora.php";
-include "C:/xampp/htdocs/pwd/EJ7/util/encapsulado.php";
+include "../../Control/Calculadora.php";
+include "../../util/encapsulado.php";
 $server = new Calculadora();
 $datos = encapsulado();
 

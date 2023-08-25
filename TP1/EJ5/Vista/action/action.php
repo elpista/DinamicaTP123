@@ -1,6 +1,6 @@
 <?php
-include "C:/xampp/htdocs/pwd/EJ5/Control/Persona.php";
-include "C:/xampp/htdocs/pwd/EJ5/util/encapsulado.php";
+include "../../Control/Persona.php";
+include "../../util/encapsulado.php";
 $server = new Persona();
 $datos = encapsulado();
 

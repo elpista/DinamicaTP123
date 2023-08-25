@@ -11,6 +11,10 @@
         <button type="button" onclick="location.href='TP1/EJ2/Vista/index.php'">EJ2</button>
         <button type="button" onclick="location.href='TP1/EJ3/Vista/index.php'">EJ3</button>
         <button type="button" onclick="location.href='TP1/EJ4/Vista/index.php'">EJ4</button>
+        <button type="button" onclick="location.href='TP1/EJ5/Vista/index.php'">EJ5</button>
+        <button type="button" onclick="location.href='TP1/EJ6/Vista/index.php'">EJ6</button>
+        <button type="button" onclick="location.href='TP1/EJ7/Vista/index.php'">EJ7</button>
+        <button type="button" onclick="location.href='TP1/EJ8/Vista/index.php'">EJ8</button>
         <br/>
 
         <h1>

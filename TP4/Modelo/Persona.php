@@ -139,14 +139,14 @@ class Persona {
         return $resp;
     }
 
-    public function buscar($dniBusqueda){
+    public function listar($dniBusqueda){
         $resp = false;
         $base = new BaseDatos();
         $sql = "SELECT * FROM persona WHERE NroDni=" .$dniBusqueda;
         if ($base->Iniciar()) {
             if($base->Ejecutar($sql)){
                 if($row = $base->Registro()){
-                    $this->cargar($row['NroDni'], $row['Apellido'], $row['Nombre'], 
+                    $this->setear($row['NroDni'], $row['Apellido'], $row['Nombre'], 
                     $row['fechaNac'], $row['Telefono'], $row['Domicilio']); 
                     $resp = true;
                 }

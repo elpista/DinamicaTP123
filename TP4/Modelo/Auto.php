@@ -67,6 +67,7 @@ class Auto
         $this->mensajeOperacion = $mensajeOperacion;
     }
 
+    /*
     public function __toString()
     {
         $cadena = "\nPatente: " . $this->getPatente() .
@@ -74,6 +75,27 @@ class Auto
         "\nModelo: " . $this->getModelo() .
         "\nDNI del dueño: " . $this->getObjDuenio()->getDni() . "\n";
         return $cadena;
+    }
+    */
+
+    public function cargar(){
+        $resp = false;
+        $base=new BaseDatos();
+        $sql="SELECT * FROM auto WHERE patente = ".$this->getPatente();
+        if ($base->Iniciar()) {
+            $res = $base->Ejecutar($sql);
+            if($res>-1){
+                if($res>0){
+                    $row = $base->Registro();
+                    $this->setear($row['patente'], $row['marca'], $row['modelo'], $row['objDuenio']);
+                }
+            }
+        } else {
+            $this->setmensajeoperacion($base->getError());
+        }
+        return $resp;
+    
+        
     }
 
     public function insertar()
@@ -130,17 +152,17 @@ class Auto
         return $resp;
     }
 
-    public function buscar()
+    public static function listar($parametro)
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "SELECT * FROM auto WHERE Patente=" . $this->getPatente();
+        $sql = "SELECT * FROM auto WHERE Patente=" . $parametro;
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 if ($row = $base->Registro()) {
                     $objDuenio = new Persona();
                     $objDuenio->buscar($row['dniDuenio']);
-                    $this->cargar($row['patente'], $row['marca'], $row['modelo'], $objDuenio);
+                    $this->setear($row['patente'], $row['marca'], $row['modelo'], $objDuenio);
                     $resp = true;
                 }
             } else {
@@ -152,7 +174,7 @@ class Auto
         return $resp;
     }
 
-    public function cargar($patente, $marca, $modelo, $objDuenio)
+    public function setear($patente, $marca, $modelo, $objDuenio)
     {
         $this->setPatente($patente);
         $this->setMarca($marca);

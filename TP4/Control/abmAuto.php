@@ -1,22 +1,21 @@
 <?php
-class AbmPersona{
+class AbmAuto{
     //Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
 
     
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      * @param array $param
-     * @return Persona
+     * @return Auto
      */
     private function cargarObjeto($param){
         $obj = null;
            
-        if (array_key_exists('NroDni',$param) && array_key_exists('nombre',$param) &&
-        array_key_exists('apellido',$param) && array_key_exists('fechaNac',$param) &&
-        array_key_exists('telefono',$param) && array_key_exists('domicilio',$param)){
-            $obj = new Persona();
-            $obj->setear($param['NroDni'], $param['nombre'], $param['apellido']
-            , $param['fechaNac'], $param['telefono'], $param['domicilio']);
+        if (array_key_exists('patente',$param) && array_key_exists('marca',$param) &&
+        array_key_exists('modelo',$param) && array_key_exists('objDuenio',$param)){
+            // si tira error, revisar si usar objDuenio o dniDuenio
+            $obj = new Auto();
+            $obj->setear($param['patente'], $param['marca'], $param['modelo'], $param['objDuenio']);
         }
         return $obj;
     }
@@ -24,14 +23,14 @@ class AbmPersona{
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
      * @param array $param
-     * @return Persona
+     * @return Auto
      */
     private function cargarObjetoConClave($param){
         $obj = null;
         
-        if( isset($param['NroDni']) ){
-            $obj = new Persona();
-            $obj->setear($param['NroDni'], null, null, null, null, null);
+        if( isset($param['patente']) ){
+            $obj = new Auto();
+            $obj->setear($param['patente'], null, null, null);
         }
         return $obj;
     }
@@ -45,7 +44,7 @@ class AbmPersona{
     
     private function seteadosCamposClaves($param){
         $resp = false;
-        if (isset($param['NroDni']))
+        if (isset($param['patente']))
             $resp = true;
         return $resp;
     }
@@ -57,10 +56,10 @@ class AbmPersona{
     public function alta($param){
         $resp = false;
         //el siguiente comando debería hacerse si tuviera autoIncrement, pero no es el caso
-        //$param['NroDni'] =null;
-        $elObjtPersona = $this->cargarObjeto($param);
-//        verEstructura($elObjtPersona);
-        if ($elObjtPersona!=null && $elObjtPersona->insertar()){
+        //$param['patente'] =null;
+        $elObjtAuto = $this->cargarObjeto($param);
+//        verEstructura($elObjtAuto);
+        if ($elObjtAuto!=null && $elObjtAuto->insertar()){
             $resp = true;
         }
         return $resp;
@@ -74,8 +73,8 @@ class AbmPersona{
     public function baja($param){
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
-            $elObjtPersona = $this->cargarObjetoConClave($param);
-            if ($elObjtPersona!=null && $elObjtPersona->eliminar()){
+            $elObjtAuto = $this->cargarObjetoConClave($param);
+            if ($elObjtAuto!=null && $elObjtAuto->eliminar()){
                 $resp = true;
             }
         }
@@ -92,8 +91,8 @@ class AbmPersona{
         //echo "Estoy en modificacion";
         $resp = false;
         if ($this->seteadosCamposClaves($param)){
-            $elObjtPersona = $this->cargarObjeto($param);
-            if($elObjtPersona!=null && $elObjtPersona->modificar()){
+            $elObjtAuto = $this->cargarObjeto($param);
+            if($elObjtAuto!=null && $elObjtAuto->modificar()){
                 $resp = true;
             }
         }
@@ -108,17 +107,16 @@ class AbmPersona{
     public function buscar($param){
         $where = " true ";
         if ($param<>NULL){
-            if(isset($param['NroDni'])) $where.=" and NroDni =".$param['NroDni'];
-            if(isset($param['nombre'])) $where.=" and nombre ='".$param['nombre']."'";
-            if(isset($param['apellido'])) $where.=" and apellido ='".$param['apellido']."'";
-            if(isset($param['fechaNac'])) $where.=" and fechaNac ='".$param['fechaNac']."'";
-            if(isset($param['telefono'])) $where.=" and telefono =".$param['telefono'];
+            if(isset($param['patente'])) $where.=" and patente =".$param['patente'];
+            if(isset($param['marca'])) $where.=" and marca ='".$param['marca']."'";
+            if(isset($param['modelo'])) $where.=" and modelo ='".$param['modelo']."'";
+            if(isset($param['objDuenio'])) $where.=" and DniDuenio =".$param['objDuenio']['NroDni'];
         }
 
 
-        $arreglo = Persona::listar($where);
+        $arreglo = Auto::listar($where);
         //si no funciona, probar con:
-        //$obj = new Persona();
+        //$obj = new Auto();
         //$arreglo = $obj->listar($where);
 
 

@@ -1,4 +1,5 @@
 <?php
+
 class AbmPersona{
     //Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
 
@@ -108,15 +109,22 @@ class AbmPersona{
     public function buscar($param){
         $where = " true ";
         if ($param<>NULL){
-            if(isset($param['NroDni'])) $where.=" and NroDni =".$param['NroDni'];
-            if(isset($param['nombre'])) $where.=" and nombre ='".$param['nombre']."'";
-            if(isset($param['apellido'])) $where.=" and apellido ='".$param['apellido']."'";
-            if(isset($param['fechaNac'])) $where.=" and fechaNac ='".$param['fechaNac']."'";
-            if(isset($param['telefono'])) $where.=" and telefono =".$param['telefono'];
-        }
+            if  (isset($param['nrodi']))
+                $where.=" and nrodni = '".$param['nrodni']."'";
+            if  (isset($param['apellido']))
+                 $where.=" and apellido = '".$param['apellido']."'";
+            if  (isset($param['nombre']))
+                 $where.=" and nombre = '".$param['nombre']."'";
+            if  (isset($param['fechanac']))
+                 $where.=" and fechanac = '".$param['fechanac']."'";
+            if  (isset($param['telefono']))
+                 $where.=" and telefono = '".$param['telefono']."'";
+            if  (isset($param['domicilio']))
+                 $where.=" and domicilio = '".$param['domicilio']."'";                    
+        }// fin if <> null
 
-
-        $arreglo = Persona::listar($where);
+       $arreglo = Persona::listar($where);
+        
         //si no funciona, probar con:
         //$obj = new Persona();
         //$arreglo = $obj->listar($where);

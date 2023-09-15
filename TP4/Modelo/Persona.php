@@ -1,5 +1,4 @@
 <?php
-include_once "./conector/BaseDatos.php";
 class Persona {
     private $NroDni;
     private $nombre;
@@ -163,25 +162,33 @@ class Persona {
         return $resp;
     }
 
-    public function listar($NroDniBusqueda){
-        $resp = false;
-        $base = new BaseDatos();
-        $sql = "SELECT * FROM persona WHERE NroDni=" .$NroDniBusqueda;
-        if ($base->Iniciar()) {
-            if($base->Ejecutar($sql)){
-                if($row = $base->Registro()){
-                    $this->setear($row['NroDni'], $row['Apellido'], $row['Nombre'], 
-                    $row['fechaNac'], $row['Telefono'], $row['Domicilio']); 
-                    $resp = true;
-                }
-            } else {
-                $this->setMensajeOperacion($base->getError());
-            }
-        } else {
-            $this->setMensajeOperacion($base->getError());
+    public static function listar($parametro=""){
+        $arreglo = array();
+        $base=new BaseDatos();
+        $sql="SELECT * FROM 
+        persona ";
+        if ($parametro!="") {
+            $sql.='WHERE '.$parametro;
         }
-        return $resp;
+        $res = $base->Ejecutar($sql);
+        if($res>-1){
+            if($res>0){
+                
+                while ($row = $base->Registro()){
+                    $obj= new Persona();
+                    $obj->setear($row['NroDni'], $row['Apellido'], $row['Nombre'], 
+                    $row['fechaNac'], $row['Telefono'], $row['Domicilio']); 
+                    array_push($arreglo, $obj);
+                }
+               
+            }
+            
+        }
+ 
+        return $arreglo;
     }
+    
+
 
     public function setear($NroDni, $apellido, $nombre, $fechaNac, $telefono, $domicilio){
         $this->NroDni = $NroDni;

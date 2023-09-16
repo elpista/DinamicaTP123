@@ -1,19 +1,14 @@
 <?php
     include_once("../configuracion.php");
+
+$ejercicio = " Ejercicio 5";
+$titulo = "TP4 - " . $ejercicio;
     include_once '../estructura.php';
     $abmPersona= new AbmPersona();
     $personas = array();
     $personas = $abmPersona->buscar(null);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista Personas</title>
-</head>
-<body>
     <div class="container mt-5">
         <h1 class="text-center">Lista de Personas</h1>
         <div class="table-responsive">

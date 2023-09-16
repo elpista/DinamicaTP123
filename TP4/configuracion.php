@@ -8,7 +8,7 @@ header ("Cache-Control: no-cache, must-revalidate ");
 
 
 //cambiar el nombre de la carpeta: "web dinamica" y este string antes de probar el codigo
-$PROYECTO ='TPDinamica123/TP4';
+$PROYECTO ='TP4';
 
 //variable que almacena el directorio del proyecto
 $ROOT = $_SERVER['DOCUMENT_ROOT'] . "/$PROYECTO/";

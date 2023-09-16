@@ -1,10 +1,10 @@
-<html>
-    <head>
-        <title>Ejercicio 4: Buscar auto</title>
-        <link rel="stylesheet" href="bootstrap-5.1.3-dist/css/bootstrap.min.css"/>
-        <script src="bootstrap-5.1.3-dist/js/bootstrap.min.js"></script>
-    </head>
-    <body>
+<?php
+$ejercicio = " Ejercicio 4";
+$titulo = "TP4 - " . $ejercicio;
+include_once '../../../configuracion.php';
+include_once '../../../estructura.php';
+
+?>
         <h2>Buscar auto</h2>
         <br/>
         <form method="get" action="action\accionBuscarAuto.php">

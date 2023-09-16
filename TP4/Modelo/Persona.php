@@ -130,10 +130,10 @@ class Persona {
 
     public function modificar(){
         $resp = false;
-        $base = new BaseDatos();
-        $sql = "UPDATE persona SET NroDni='" .$this->getNroDni(). ",Apellido='" .$this->getApellido().
-            "',Nombre='" .$this->getNombre(). "',fechaNac='" .$this->getFechaNac(). "',Telefono='" .$this->getTelefono().
-            ",Domicilio='" .$this->getDomicilio(). "' WHERE NroDni=" .$this->getNroDni();
+        $base = new BaseDatos(); //*PARCHE* en la consulta, estaban intercambiados el nombre y el apellido, no se de donde viene la confusion
+        $sql = "UPDATE persona SET Apellido='" . $this->getNombre() . "', Nombre='" . $this->getApellido() .
+     "', fechaNac='" . $this->getFechaNac() . "', Telefono='" . $this->getTelefono() .
+    "', Domicilio='" . $this->getDomicilio() . "' WHERE NroDni=" . $this->getNroDni();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;

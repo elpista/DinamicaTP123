@@ -65,9 +65,13 @@ arrow_back
                                 TP4
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Ejercicio 1</a></li>
-                                <li><a class="dropdown-item" href="#">Ejercicio 2</a></li>
-                                <li><a class="dropdown-item" href="#">Ejercicio 3</a></li>
+                                <li><a class="dropdown-item" href="/TP4/Vista/VerAutos.php">Ejercicio 3</a></li>
+                                <li><a class="dropdown-item" href="/TP4/Vista/EJ4/estructura/buscarAuto.php">Ejercicio 4</a></li>
+                                <li><a class="dropdown-item" href="/TP4/Vista/listaPersonas.php">Ejercicio 5</a></li>
+                                <li><a class="dropdown-item" href="/TP4/Vista/NuevaPersona.php">Ejercicio 6</a></li>
+                                <li><a class="dropdown-item" href="/TP4/Vista/NuevoAuto.php">Ejercicio 7</a></li>
+                                <li><a class="dropdown-item" href="/TP4/Vista/CambioDuenio.php">Ejercicio 8</a></li>
+                                <li><a class="dropdown-item" href="/TP4/Vista/BuscarPersona.php">Ejercicio 9</a></li>
                             </ul>
                         </li>
                     </ul>

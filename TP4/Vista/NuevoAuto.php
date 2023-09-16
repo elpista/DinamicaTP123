@@ -1,5 +1,5 @@
 <?php
-$ejercicio = " Ejercicio 5";
+$ejercicio = " Ejercicio 7";
 $titulo = "TP4 - " . $ejercicio;
 include_once '../configuracion.php';
 include_once '../estructura.php';

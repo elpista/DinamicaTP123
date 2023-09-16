@@ -168,8 +168,9 @@ class Auto
             if($res>0){
                 while($row=$base->Registro()){
                     $obj=new Auto();
-                    $objDuenio = new AbmPersona();
-                    $objDuenio->buscar($row['DniDuenio']);
+                    $objDuenio = new Persona();
+                    $objDuenio->setNroDni($row['DniDuenio']);
+                    $objDuenio->cargar();
                     $obj->setear($row["Patente"],$row["Marca"],$row["Modelo"],$objDuenio);
                     array_push($arreglo,$obj);
                     //var_dump($arreglo); 

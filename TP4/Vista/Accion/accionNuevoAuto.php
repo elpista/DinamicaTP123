@@ -2,7 +2,7 @@
 include_once '../../configuracion.php';
 $ejercicio = " Ejercicio 5";
 $titulo = "TP4 - " . $ejercicio;
-include_once '../../estructura.php';
+include_once '../../../estructura.php';
 
 $persona = new AbmPersona;
 $auto = new AbmAuto;

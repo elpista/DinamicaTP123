@@ -1,6 +1,6 @@
 <?php 
 include_once("../../configuracion.php");
-include_once('../../estructura.php');
+include_once('../../../estructura.php');
 $datos = data_submitted();
 $objPers = new AbmPersona();
 $objAutos = new AbmAuto();

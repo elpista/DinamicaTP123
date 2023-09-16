@@ -3,7 +3,7 @@ include_once("../configuracion.php");
 
 $ejercicio = " Ejercicio 5";
 $titulo = "TP4 - " . $ejercicio;
-include_once '../estructura.php';
+include_once '../../estructura.php';
 $abmPersona = new AbmPersona();
 $personas = array();
 $personas = $abmPersona->buscar(null);

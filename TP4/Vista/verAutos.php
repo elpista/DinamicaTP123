@@ -2,7 +2,7 @@
 include_once("../configuracion.php");
 $ejercicio = " Ejercicio 3";
 $titulo = "TP4 - " . $ejercicio;
-include_once '../estructura.php';
+include_once '../../estructura.php';
 $objAbmAuto = new AbmAuto();
 $listaAuto = [];
 $listaAuto = $objAbmAuto->buscar(null);

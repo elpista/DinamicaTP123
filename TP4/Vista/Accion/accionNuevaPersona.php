@@ -1,8 +1,8 @@
 <?php
-$ejercicio = " Ejercicio 4";
+$ejercicio = " Ejercicio 6";
 $titulo = "TP4 - " . $ejercicio;
 include_once '../../configuracion.php';
-include_once '../../estructura.php';
+include_once '../../../estructura.php';
 
 $param = data_submitted();
 $abmPersona = new AbmPersona();

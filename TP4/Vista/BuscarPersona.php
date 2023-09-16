@@ -2,7 +2,7 @@
 $ejercicio = " Ejercicio 9";
 $titulo = "TP4 - " . $ejercicio;
 include_once '../configuracion.php';
-include_once '../estructura.php';
+include_once '../../estructura.php';
 
 ?>
 

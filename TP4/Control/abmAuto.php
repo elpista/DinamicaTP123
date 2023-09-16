@@ -107,7 +107,7 @@ class AbmAuto{
     public function buscar($param){
         $where = " true ";
         if ($param<>NULL){
-            if(isset($param['patente'])) $where.=" and patente =".$param['patente'];
+            if(isset($param['patente'])) $where.=" and patente = '".$param['patente']."'";
             if(isset($param['marca'])) $where.=" and marca ='".$param['marca']."'";
             if(isset($param['modelo'])) $where.=" and modelo ='".$param['modelo']."'";
             if(isset($param['objDuenio'])) $where.=" and DniDuenio =".$param['objDuenio']['NroDni'];

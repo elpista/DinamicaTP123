@@ -1,5 +1,5 @@
 <?php
-include_once "./conector/BaseDatos.php";
+include_once "conector/BaseDatos.php";
 class Auto
 {
     private $patente;
@@ -152,26 +152,30 @@ class Auto
         return $resp;
     }
 
-    public static function listar($parametro)
-    {
-        $resp = false;
-        $base = new BaseDatos();
-        $sql = "SELECT * FROM auto WHERE Patente=" . $parametro;
-        if ($base->Iniciar()) {
-            if ($base->Ejecutar($sql)) {
-                if ($row = $base->Registro()) {
-                    $objDuenio = new Persona();
-                    $objDuenio->buscar($row['dniDuenio']);
-                    $this->setear($row['patente'], $row['marca'], $row['modelo'], $objDuenio);
-                    $resp = true;
-                }
-            } else {
-                $this->setMensajeOperacion($base->getError());
-            }
-        } else {
-            $this->setMensajeOperacion($base->getError());
+    public static function listar($parametro=""){
+        $arreglo = array();
+        $base=new BaseDatos();
+        $sql="SELECT * FROM 
+        auto ";
+        if ($parametro!="") {
+            $sql.='WHERE '.$parametro;
         }
-        return $resp;
+        $res = $base->Ejecutar($sql);
+        if($res>-1){
+            if($res>0){
+                
+                while ($row = $base->Registro()){
+                    $obj= new Auto();
+                    $obj->setear($row['Patente'], $row['Marca'], $row['Modelo'], 
+                    $row['DniDuenio']); 
+                    array_push($arreglo, $obj);
+                }
+               
+            }
+            
+        }
+ 
+        return $arreglo;
     }
 
     public function setear($patente, $marca, $modelo, $objDuenio)

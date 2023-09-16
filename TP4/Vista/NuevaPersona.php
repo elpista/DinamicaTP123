@@ -5,6 +5,7 @@ include_once '../configuracion.php';
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <title>Ejercicio 6</title>
@@ -17,7 +18,7 @@ include_once '../configuracion.php';
                 <h3 class="text-center" style="color: blue">Nueva persona</h3>
                 <div class="col-6">
                     <label for="Nombre" class="form-label">Nombre</label>
-                    <input type="text" class="form-control border-secondary" id="Nombre" name="Nombre" required>
+                    <input type="text" class="form-control border-secondary" id="nombre" name="nombre" required>
                     <div class="valid-feedback">
                         Nombre válido.
                     </div>
@@ -28,7 +29,7 @@ include_once '../configuracion.php';
 
                 <div class="col-6">
                     <label for="Apellido" class="form-label">Apellido</label>
-                    <input type="text" class="form-control border-secondary" id="Apellido" name="Apellido" required>
+                    <input type="text" class="form-control border-secondary" id="apellido" name="apellido" required>
                     <div class="valid-feedback">
                         Apellido válido
                     </div>
@@ -50,7 +51,7 @@ include_once '../configuracion.php';
 
                 <div class="col-6">
                     <label for="Telefono" class="form-label">Teléfono</label>
-                    <input class="form-control border-secondary" pattern="[0-9]+" type="text" name="Telefono" id="Telefono" required>
+                    <input class="form-control border-secondary" pattern="[0-9]+" type="text" name="telefono" id="telefono" required>
                     <div class="valid-feedback">
                         Teléfono válido
                     </div>
@@ -72,7 +73,7 @@ include_once '../configuracion.php';
 
                 <div class="col-6">
                     <label for="Domicilio" class="form-label">Dirección</label>
-                    <input type="text" class="form-control border-secondary" id="Domicilio" name="Domicilio" required>
+                    <input type="text" class="form-control border-secondary" id="domicilio" name="domicilio" required>
                     <div class="valid-feedback">
                         Dirección válida
                     </div>

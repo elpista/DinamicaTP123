@@ -115,7 +115,7 @@ class Persona {
         $base = new BaseDatos();
         $sql = "INSERT INTO persona(NroDni,Apellido,Nombre,fechaNac,Telefono,Domicilio) 
             VALUES(".$this->getNroDni().",'".$this->getApellido()."','".$this->getNombre()."','".$this->getFechaNac().
-            "','".$this->getTelefono().",".$this->getDomicilio().");";
+            "','".$this->getTelefono()."','".$this->getDomicilio()."');";
         if ($base->Iniciar()) {
             if ($NroDni = $base->Ejecutar($sql)) {
                 $resp = true;

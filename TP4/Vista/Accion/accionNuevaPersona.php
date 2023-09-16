@@ -5,25 +5,25 @@ include_once '../../util/funciones.php';
 $param = data_submitted();
 $abmPersona = new AbmPersona();
 $personas = $abmPersona->buscar($param);
-$existe = false;
+$existe = 0;
 $i = 0;
     while (!$existe && $i < count($personas)) {
-        if ($personas[$i]->getNroDni() == $dni) {
-            $existe = true;
+        if ($personas[$i]->getNroDni() == $param['NroDni']) {
+            $existe = 1;
         }
         $i++;
     }
-    if ($existe) {
+    if ($existe == 1) {
         $salida = "Ya existe una persona con este DNI.";
     } else {
-        $respuesta = $abmPersona->alta($param);
-        if ($respuesta) {
+        $resultado = $abmPersona->alta($param);
+
+        if ($resultado) {
             $salida = "La persona fue cargada con éxito.";
         } else {
             $salida = "Error al cargar la persona.";
         }
     }
-
 ?>
 
 <html>

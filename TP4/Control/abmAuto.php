@@ -11,15 +11,15 @@ class AbmAuto{
     private function cargarObjeto($param){
         $obj = null;
            
-        if (array_key_exists('patente',$param) && array_key_exists('marca',$param) &&
-        array_key_exists('modelo',$param) && array_key_exists('objDuenio',$param)){
-            // si tira error, revisar si usar objDuenio o dniDuenio
+        if (array_key_exists('Patente',$param) && array_key_exists('Marca',$param) &&
+        array_key_exists('Modelo',$param) && array_key_exists('DniDuenio',$param)){
             $obj = new Auto();
-            $obj->setear($param['patente'], $param['marca'], $param['modelo'], $param['objDuenio']);
+            $obj->setear($param['Patente'], $param['Marca'], $param['Modelo'], $param['DniDuenio']);
         }
         return $obj;
     }
-    
+
+
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
      * @param array $param
@@ -28,7 +28,7 @@ class AbmAuto{
     private function cargarObjetoConClave($param){
         $obj = null;
         
-        if( isset($param['patente']) ){
+        if( isset($param['Patente']) ){
             $obj = new Auto();
             $obj->setear($param['patente'], null, null, null);
         }
@@ -44,7 +44,7 @@ class AbmAuto{
     
     private function seteadosCamposClaves($param){
         $resp = false;
-        if (isset($param['patente']))
+        if (isset($param['Patente']))
             $resp = true;
         return $resp;
     }

@@ -11,8 +11,8 @@ if(!empty($busqueda)){
     $marca = $busqueda[0]->getMarca();
     $modelo = $busqueda[0]->getModelo();
 
-    //cambiar por getObjDuenio()->getNroDni();
-    $dniDuenio = $busqueda[0]->getObjDuenio();
+    //cambiar por $busqueda[0]->getObjDuenio();
+    $dniDuenio = $busqueda[0]->getObjDuenio()->getNroDni();
 
     $respuesta = 
 " <h3>Datos del auto:</h3>

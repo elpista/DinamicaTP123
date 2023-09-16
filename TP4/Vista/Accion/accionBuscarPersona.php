@@ -1,6 +1,6 @@
 <?php
 include_once '../../configuracion.php';
-$ejercicio = " Ejercicio 6";
+$ejercicio = " Ejercicio 9";
 $titulo = "TP4 - " . $ejercicio;
 include_once '../../estructura.php';
 

@@ -1,20 +1,22 @@
 <?php
-    include_once("../configuracion.php");
-    $ejercicio = " Ejercicio 3";
+include_once("../configuracion.php");
+$ejercicio = " Ejercicio 3";
 $titulo = "TP4 - " . $ejercicio;
-    include_once '../estructura.php';
-    $objAbmAuto = new AbmAuto();
-    $listaAuto = [];
-    $listaAuto = $objAbmAuto->buscar(null);
+include_once '../estructura.php';
+$objAbmAuto = new AbmAuto();
+$listaAuto = [];
+$listaAuto = $objAbmAuto->buscar(null);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autos</title>
 </head>
+
 <body>
     <div class="container mt-5">
         <h1 class="text-center">Autos</h1>
@@ -50,4 +52,5 @@ $titulo = "TP4 - " . $ejercicio;
         </div>
     </div>
 </body>
+
 </html>

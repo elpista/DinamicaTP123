@@ -1,5 +1,8 @@
 <?php
-include_once "../../../../configuracion.php";
+$ejercicio = " Ejercicio 4";
+$titulo = "TP4 - " . $ejercicio;
+include_once '../../../../configuracion.php';
+include_once '../../../../estructura.php';
 
 $param["patente"] = $_GET["patente"];
 $auto = new AbmAuto();

@@ -122,6 +122,16 @@ class AbmAuto{
 
         return $arreglo;
     }
-    
+
+    public function buscarDniDuenio($param){
+        $where = " true ";
+        if ($param<>NULL) {
+            if (isset($param['NroDni']))
+            $where .= " and DniDuenio ='".$param['NroDni']."'";
+        }
+        $obj = new Auto();
+        $arreglo = $obj->listar($where);
+        return $arreglo;
+    }
 }
 ?>

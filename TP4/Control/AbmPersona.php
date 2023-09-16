@@ -109,27 +109,22 @@ class AbmPersona{
     public function buscar($param){
         $where = " true ";
         if ($param<>NULL){
-            if  (isset($param['nrodi']))
-                $where.=" and nrodni = '".$param['nrodni']."'";
-            if  (isset($param['apellido']))
-                 $where.=" and apellido = '".$param['apellido']."'";
-            if  (isset($param['nombre']))
-                 $where.=" and nombre = '".$param['nombre']."'";
-            if  (isset($param['fechanac']))
-                 $where.=" and fechanac = '".$param['fechanac']."'";
-            if  (isset($param['telefono']))
-                 $where.=" and telefono = '".$param['telefono']."'";
-            if  (isset($param['domicilio']))
-                 $where.=" and domicilio = '".$param['domicilio']."'";                    
-        }// fin if <> null
+            if  (isset($param['NroDni']))
+                $where.=" and nrodni = '".$param['NroDni']."'";
+            if  (isset($param['Apellido']))
+                 $where.=" and apellido = '".$param['Apellido']."'";
+            if  (isset($param['Nombre']))
+                 $where.=" and nombre = '".$param['Nombre']."'";
+            if  (isset($param['fechaNac']))
+                 $where.=" and fechanac = '".$param['fechaNac']."'";
+            if  (isset($param['Telefono']))
+                 $where.=" and telefono = '".$param['Telefono']."'";
+            if  (isset($param['Domicilio']))
+                 $where.=" and domicilio = '".$param['Domicilio']."'";                    
+        }
 
        $arreglo = Persona::listar($where);
-        
-        //si no funciona, probar con:
-        //$obj = new Persona();
-        //$arreglo = $obj->listar($where);
-
-
+       
         return $arreglo;
     }
     

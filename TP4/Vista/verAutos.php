@@ -1,5 +1,6 @@
 <?php
     include_once("../configuracion.php");
+    include_once '../estructura.php';
     $objAbmAuto = new AbmAuto();
     $listaAuto = [];
     $listaAuto = $objAbmAuto->buscar(null);
@@ -13,32 +14,35 @@
     <title>Autos</title>
 </head>
 <body>
-    <div class="contenido">
-        <h1>Autos</h1>
-        <div>
-            <table>
-                <tr>
-                    <th>Patente</th>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
+    <div class="container mt-5">
+        <h1 class="text-center">Autos</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Patente</th>
+                        <th>Marca</th>
+                        <th>Modelo</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                    </tr>
+                </thead>
                 <tbody>
-                <?php
+                    <?php
                     if (count($listaAuto) > 0) {
-                    for ($i=0; $i<count($listaAuto); $i++) {
-                        echo '<tr>';
-                        echo '<td>' . $listaAuto[$i]->getPatente() . '</td>';
-                        echo '<td>' . $listaAuto[$i]->getMarca() . '</td>';
-                        echo '<td>' . $listaAuto[$i]->getModelo() . '</td>';
-                        echo '<td>' . $listaAuto[$i]->getObjDuenio()->getNombre() . '</td>';
-                        echo '<td>' . $listaAuto[$i]->getObjDuenio()->getApellido(). '</td>';
-                        echo '</tr>';
-                    }
+                        foreach ($listaAuto as $auto) {
+                            echo '<tr>';
+                            echo '<td>' . $auto->getPatente() . '</td>';
+                            echo '<td>' . $auto->getMarca() . '</td>';
+                            echo '<td>' . $auto->getModelo() . '</td>';
+                            echo '<td>' . $auto->getObjDuenio()->getNombre() . '</td>';
+                            echo '<td>' . $auto->getObjDuenio()->getApellido() . '</td>';
+                            echo '</tr>';
+                        }
                     } else {
-                        echo '<tr><td colspan="7">No hay datos cargados.</td></tr>';
+                        echo '<tr><td colspan="5">No hay datos cargados.</td></tr>';
                     }
-                ?>
+                    ?>
                 </tbody>
             </table>
         </div>

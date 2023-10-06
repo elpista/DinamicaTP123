@@ -18,7 +18,7 @@ $google_client->setClientId('691743210094-abn79b0i03sbfo3johlstqcuck58r5bk.apps.
 $google_client->setClientSecret('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');
 
 //Set the OAuth 2.0 Redirect URI
-$google_client->setRedirectUri('http://localhost/DinamicaTP123/TPClasesUtiles/Vista/cambiarNombre.php');
+$google_client->setRedirectUri('http://localhost/DinamicaTP123/TPClasesUtiles/index.php');
 
 // to get the email and profile 
 $google_client->addScope('email');

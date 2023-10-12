@@ -59,9 +59,10 @@ if(isset($_GET["code"]))
 
 if(!isset($_SESSION['access_token']))
 {
-
  $login_button = '<a href="'.$google_client->createAuthUrl().'">Login With Google</a>';
-}
+} //else {
+    // Consultar al control si la cuenta ya se encuentra cargada en la DB, de lo contrario, agregarla
+//}
 
 ?>
 <html>
@@ -90,6 +91,9 @@ if(!isset($_SESSION['access_token']))
     echo '<h3><b>Name :</b> '.$_SESSION['user_first_name'].' '.$_SESSION['user_last_name'].'</h3>';
     echo '<h3><b>Email :</b> '.$_SESSION['user_email_address'].'</h3>';
     echo '<h3><a href="logout.php">Logout</h3></div>';
+
+    // Comprobar si la cuenta ya tiene una cuenta de steam enlazada, mostrar la informacion de la cuenta o
+    // un boton para loguear con steam
    }
    else
    {

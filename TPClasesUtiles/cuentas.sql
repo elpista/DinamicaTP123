@@ -5,3 +5,9 @@ CREATE TABLE `google`(
     PRIMARY KEY  (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `steam`(
+    `steamid` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
+    `personaname` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
+    `avatarmedium` varchar(100) character set utf8 collate utf8_unicode_ci NOT NULL,
+    PRIMARY KEY (`steamid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

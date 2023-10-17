@@ -4,12 +4,14 @@ class Steam {
     private $avatarMedium;
     private $steamid;
     private $personaName;
+    private $googleEmail;
     private $mensajeOperacion;
 
     public function __construct() {
         $this->avatarMedium = "";
         $this->steamid = "";
         $this->personaName = "";
+        $this->googleEmail = "";
         $this->mensajeOperacion = "";
     }
 
@@ -23,6 +25,10 @@ public function getSteamid() {
 
 public function getPersonaName() {
     return $this->personaName;
+}
+
+public function getGoogleEmail() {
+    return $this->googleEmail;
 }
 
 public function getMensajeOperacion() {
@@ -42,6 +48,10 @@ public function setPersonaName($personaName) {
     $this->personaName=$personaName;
 }
 
+public function setGoogleEmail($googleEmail) {
+    $this->googleEmail=$googleEmail;
+}
+
 public function setMensajeOperacion($mensajeOperacion) {
     $this->mensajeOperacion=$mensajeOperacion;
 }
@@ -55,7 +65,7 @@ public function cargar() {
         if($res>-1){
             if($res>0){
                 $row = $base->Registro();
-                $this->setear($row['steamid'], $row['personaname'], $row['avatarmedium']);
+                $this->setear($row['steamid'], $row['personaname'], $row['avatarmedium'], $row['googleEmail']);
             }
         }
     } else {
@@ -69,8 +79,8 @@ public function insertar() {
     
     $resp = false;
 
-    $sql = "INSERT INTO steam(steamid, personaname, avatarmedium)
-            VALUES ('" . $this->getSteamid() . "','" . $this->getPersonaName() . "','" . $this->getAvatarMedium() . "')";
+    $sql = "INSERT INTO steam(steamid, personaname, avatarmedium, googleEmail)
+            VALUES ('" . $this->getSteamid() . "','" . $this->getPersonaName() . "','" . $this->getAvatarMedium() . "','" . $this->getGoogleEmail() . "')";
     if ($base->Iniciar()) {
         if ($base->Ejecutar($sql)) {
             $resp = true;
@@ -86,7 +96,7 @@ public function insertar() {
 public function modificar() {
     $res=false;
     $base=new BaseDatos();
-    $sql="UPDATE steam SET personaname='".$this->getPersonaName()."', avatarmedium='".$this->getAvatarMedium()."'WHERE steamid='".$this->getSteamid()."'";
+    $sql="UPDATE steam SET personaname='".$this->getPersonaName()."', avatarmedium='".$this->getAvatarMedium()."', googleEmail='" .$this->getGoogleEmail(). "'WHERE steamid='".$this->getSteamid()."'";
     if($base->Iniciar()){
         if($base->Ejecutar($sql)){
             $res=true;
@@ -133,7 +143,7 @@ public static function listar($parametro=""){
         if($res>0){
             while($row=$base->Registro()){
                 $obj=new Steam();
-                $obj->setear($row["steamid"],$row["personaname"],$row["avatarmedium"]);
+                $obj->setear($row["steamid"],$row["personaname"],$row["avatarmedium"], $row["googleEmail"]);
                 array_push($arreglo,$obj);
                 //var_dump($arreglo); 
             }
@@ -142,10 +152,11 @@ public static function listar($parametro=""){
     return $arreglo; 
 }
 
-public function setear($steamid, $personaName, $avatarMedium) {
+public function setear($steamid, $personaName, $avatarMedium, $googleEmail) {
     $this->setSteamid($steamid);
     $this->setPersonaName($personaName);
     $this->setAvatarMedium($avatarMedium);
+    $this->setGoogleEmail($googleEmail);
 }
 
 }

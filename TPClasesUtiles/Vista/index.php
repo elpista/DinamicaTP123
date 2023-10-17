@@ -1,9 +1,10 @@
 <?php
 
-//index.php
-
 //Include Configuration File
 include('config.php');
+
+include_once '../configuracion.php';
+include_once '../../estructura.php';
 
 $login_button = '';
 
@@ -53,6 +54,18 @@ if(isset($_GET["code"]))
   {
    $_SESSION['user_image'] = $data['picture'];
   }
+
+  
+
+  $abmGoogle = new AbmGoogle;
+  $cuenta['email'] = $data['email'];
+
+  //echo print_r($abmGoogle->buscar($cuenta));
+  if($abmGoogle->buscar($cuenta) == []){
+    $cuenta['name'] = $data['given_name'] . ' ' . $data['family_name'];
+    $cuenta['picture'] = $data['picture'];
+    $abmGoogle->alta($cuenta);
+  } 
  }
 }
 

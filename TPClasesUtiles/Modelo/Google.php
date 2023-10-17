@@ -1,5 +1,5 @@
 <?php
-include_once("./conector/BaseDatos.php");
+include_once("conector/BaseDatos.php");
 class Google
 {
     private $email;

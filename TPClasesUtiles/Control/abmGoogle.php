@@ -1,11 +1,10 @@
 <?php
-include_once("../Modelo/Google.php");
 class AbmGoogle{
     
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto
      * @param array $param
-     * @return Auto
+     * @return Google
      */
     private function cargarObjeto($param){
         $obj = null;      
@@ -17,7 +16,30 @@ class AbmGoogle{
     }
     
     /**
-     * 
+     * @param array $param
+     * @return Google
+     */
+    private function cargarObjetoConClave($param){
+        $obj = null;
+        if( isset($param['email']) ){
+            $objGoogle = new Google();
+            $objGoogle -> setear($param['email'], null, null);
+        }
+        return $obj;
+    }
+
+    /**
+     * @param array $param
+     * @return boolean
+     */
+     private function seteadosCamposClaves($param){
+        $resp = false;
+        if (isset($param['email']))
+            $resp = true;
+        return $resp;
+    }
+
+    /**
      * @param array $param
      */
     public function alta($param){
@@ -31,7 +53,36 @@ class AbmGoogle{
     }
 
     /**
-     * permite buscar un objeto
+     * @param array $param
+     * @return boolean
+     */
+    public function baja($param){
+        $resp = false;
+        if ($this->seteadosCamposClaves($param)){
+            $objGoogle = $this->cargarObjetoConClave($param);
+            if ($objGoogle!=null && $objGoogle->eliminar()){
+                $resp = true;
+            }
+        }
+        return $resp;
+    }
+    
+    /**
+     * @param array $param
+     * @return boolean
+     */
+    public function modificacion($param){
+        $resp = false;
+        if ($this->seteadosCamposClaves($param)){
+            $objGoogle = $this->cargarObjeto($param);
+            if($objGoogle!=null && $objGoogle->modificar()){
+                $resp = true;
+            }
+        }
+        return $resp;
+    }
+
+    /**
      * @param array $param
      * @return boolean
      */

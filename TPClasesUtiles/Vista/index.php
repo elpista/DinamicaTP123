@@ -88,6 +88,7 @@ if(!isset($_SESSION['access_token']))
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <!--<link href="css/output.css" rel="stylesheet"> Agrega estilos predefinidos que pueden sobreponerse con otros.-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
  
  </head>
@@ -110,11 +111,13 @@ if(!isset($_SESSION['access_token']))
       
       $username = $_SESSION['userData']['name'];
       $avatar = $_SESSION['userData']['avatar'];
+      $profileurl = $_SESSION['userData']['profileurl'];
 
       echo '<div class="text-2xl">Bienvenido,</div>';
       echo '<div class="text-4xl mt-3 flex items-center font-medium">';
       echo '<img src='.$avatar.' class="rounded-full w-12 h-12 mr-3"/>';
       echo $username. '</div>';
+      echo '<a href='.$profileurl.'>Enlace del perfil</a><br>'; 
       echo '<a href="logout.php" class="text-sm mt-5">Cerrar sesion de Steam</a>';
     } else {
       echo '<a href="init-openId.php" class="bg-steam-lightGray  text-xl px-5 py-3 rounded-md font-bold flex items-center space-x-4 hover:bg-gray-600 transition duration-75">';

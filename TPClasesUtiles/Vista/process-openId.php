@@ -58,6 +58,7 @@ $_SESSION['userData'] = [
     'steam_id'=>$userData['steamid'],
     'name'=>$userData['personaname'],
     'avatar'=>$userData['avatarmedium'],
+    'profileurl'=>$userData['profileurl'],
 ];
 
 $redirect_url = "index.php";

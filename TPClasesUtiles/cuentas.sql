@@ -10,6 +10,7 @@ CREATE TABLE `steam`(
     `personaname` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
     `avatarmedium` varchar(100) character set utf8 collate utf8_unicode_ci NOT NULL,
     `googleEmail` varchar(50) character set utf8 collate utf8_unicode_ci NOT NULL,
+    `profileurl` varchar(200) character set utf8 collate utf8_unicode_ci NOT NULL,
     PRIMARY KEY (`steamid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

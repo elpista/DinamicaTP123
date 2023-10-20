@@ -26,7 +26,18 @@
 </a>
 </div>
 </div>';
+  
     if (isset($_SESSION['logged_in'])) {
+
+      $abmSteam = new AbmSteam;
+      $cuentaSteam['steamid'] = $_SESSION['userData']['steam_id'];
+      if ($abmSteam->buscar($cuentaSteam) == []) {
+        $cuentaSteam['personaname'] = $_SESSION['userData']['name'];
+        $cuentaSteam['avatarmedium'] = $_SESSION['userData']['avatar'];
+        $cuentaSteam['googleEmail'] = $gmail;
+        $cuentaSteam['profileurl'] = $_SESSION['userData']['profileurl'];
+        $abmSteam->alta($cuentaSteam);
+      }
 
       $username = $_SESSION['userData']['name'];
       $avatar = $_SESSION['userData']['avatar'];
@@ -45,10 +56,6 @@
     </div>
 ';
     } else {
-      /*echo '<a href="init-openId.php" class="bg-steam-lightGray  text-xl px-5 py-3 rounded-md font-bold flex items-center space-x-4 hover:bg-gray-600 transition duration-75">';
-      echo '<i class="fa-brands fa-steam text-2xl"></i>';
-      echo '<span>Iniciar sesion con Steam</span></a>';
-      $login_buttonSteam = '<div class="row">*/
       echo $login_buttonSteam;
     }
     ?>

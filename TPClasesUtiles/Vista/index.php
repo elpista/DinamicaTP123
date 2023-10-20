@@ -105,31 +105,16 @@ if (!isset($_SESSION['access_token'])) {
     // Comprobar si la cuenta ya tiene una cuenta de steam enlazada, mostrar la informacion de la cuenta o
     // un boton para loguear con steam
   } else {
-    echo '<div class="container" style="background-color: #fff; width: 30%; margin-top: 5em; border: 2px solid grey;">
-        <br />
-        <h3 align="center">Iniciar sesión</h3>
-        <br />
-        <form>
-            <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Correo electrónico</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1">
-            </div>
-            <label for="inputPassword5" class="form-label">Password</label>
-            <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
-    
-            <div id="passwordHelpBlock" class="form-text" style="margin-top: 1em; margin-left: 0;">
-                <div class="row">
-                    <div class="col-6">
-                        <button class="btn btn-primary" type="submit" style="margin-left: 3.4em">Iniciar sesión</button>
-                    </div>
-                    <div class="col-6">
-                        <button class="btn btn-primary" type="submit" style="margin-left: 0.2em;">Registrarse</button>
-                    </div>
-                </div>
-            </div>
-    
-        </form>';
+    echo '<div class="container" style="background-color: #fff; width: 30%; margin-top: 5em; border: 2px solid grey; text-align: center;">
+        <br />';
+    echo '<h2>GoogleAuth-Steam Login</h2>';
     echo $login_button;
+    echo '<br />';
+    echo '<h3>Integrantes:</h3>';
+    echo '<p>Axel Nicolas Maldonado</p>';
+    echo '<p>Marco Pistagnesi</p>';
+    echo '<p>Thomas Maximiliano Rifo</p>';
+    echo '<p>Julian Blanco</p>';
   }
   ?>
   </div>

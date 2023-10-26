@@ -47,9 +47,14 @@
         <button type="button" onclick="location.href='TP4/Vista/NuevoAuto.php'">EJ7</button>
         <button type="button" onclick="location.href='TP4/Vista/CambioDuenio.php'">EJ8</button>
         <button type="button" onclick="location.href='TP4/Vista/BuscarPersona.php'">EJ9</button>
-
         </br>
 
+        <h1>
+            Trabajo Practico Bibliotecas:
+        </h1>
+        <br/>
+        <button type="button" onclick="location.href='TPClasesUtiles/Vista/index.php'">Demo</button>
+        <br/>
         
 
     </body>

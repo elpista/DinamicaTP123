@@ -6,7 +6,7 @@ class UsuarioRol {
 
     public function __construct() {
         $this->idUsuario = 0;
-        $this->idRol = '';
+        $this->idRol = 0;
         $this->mensajeOperacion = "";
     }
 
